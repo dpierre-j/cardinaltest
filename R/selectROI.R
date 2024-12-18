@@ -1,4 +1,11 @@
 
+
+.last <- list2env(list(
+	plot = NULL,
+	image = NULL,
+	subset = TRUE
+))
+
 #### Select ROIs ####
 ## -------------------
 
@@ -86,9 +93,4 @@ makeFactor <- function(..., ordered = FALSE)
 	list(x=xs, y=ys)
 }
 
-.last <- list2env(list(
-	plot = NULL,
-	image = NULL,
-	subset = TRUE
-))
 
