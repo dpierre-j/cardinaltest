@@ -137,7 +137,7 @@ setMethod("image", c(x = "SpectralImagingExperiment"),
 	plot <- .plot_pixels(lhs, rhs,
 		by=by, groups=groups, runs=runs, key=key,
 		enhance=enhance, smooth=smooth, scale=scale, ...)
-	.last$subset <- subset
+	last$subset <- subset
 	plot
 })
 
@@ -200,7 +200,7 @@ setMethod("image", c(x = "PositionDataFrame"),
 	plot <- .plot_pixels(parse$lhs, parse$rhs,
 		by=by, groups=NULL, runs=runs, key=key,
 		enhance=enhance, smooth=smooth, scale=scale, ...)
-	.last$subset <- subset
+	last$subset <- subset
 	plot
 })
 
@@ -273,8 +273,8 @@ setMethod("image", c(x = "PositionDataFrame"),
 			vals <- unlist(lapply(vals, subset_runs), recursive=FALSE)
 		}
 	}
-	.last$image <- plot_image(x, y, z, vals, by=by, group=groups,
+	last$image <- plot_image(x, y, z, vals, by=by, group=groups,
 		xlab=xlab, ylab=ylab, zlab=zlab, ...)
-	.last$image
+	last$image
 }
 
