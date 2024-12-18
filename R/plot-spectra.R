@@ -338,8 +338,8 @@ setMethod("plot", c(x = "XDataFrame", y = "missing"),
 		groups <- factor(groups, levels=unique(groups))
 	if ( !is.null(by) && !is.factor(by) )
 		by <- factor(by, levels=unique(by))
-	.last$plot <- plot_signal(x, y, z, by=by, group=groups,
+	last$plot <- plot_signal(x, y, z, by=by, group=groups,
 		xlab=xlab, ylab=ylab, ...)
-	.last$plot
+	last$plot
 }
 
