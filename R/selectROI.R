@@ -1,6 +1,6 @@
 
 
-.last <- list2env(list(
+last <- list2env(list(
 	plot = NULL,
 	image = NULL,
 	subset = TRUE
@@ -16,7 +16,7 @@ setMethod("selectROI", "SpectralImagingExperiment",
 	if ( ...length() > 0L ) {
 		plot <- plot(image(object, ...))
 	} else {
-		plot <- plot(.last$image)
+		plot <- plot(last$image)
 	}
 	.select_ROI(object, plot, mode)
 })
@@ -46,7 +46,7 @@ makeFactor <- function(..., ordered = FALSE)
 	.Message("select ", mode, ": press ESC or 2nd mouse button to stop")
 	loc <- .select_locator(plot, mode == "region")
 	roi <- logical(ncol(object))
-	sub <- rep_len(.last$subset, ncol(object))
+	sub <- rep_len(last$subset, ncol(object))
 	pos <- coord(object)[sub,,drop=FALSE]
 	if ( mode == "region" ) {
 		selected <- inpoly(pos, cbind(loc$x, loc$y))
